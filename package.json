@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build" :"rm -rf dist && parcel build src/index.html --no-minify --public-url ./"
+    "build" :"rm -rf dist && parcel build src/index.html --no-minify --public-url ./",
+    "git":"git push -u gitee master && git push -u github master"
   },
   "devDependencies": {
     "cssnano": "^4.1.10"
