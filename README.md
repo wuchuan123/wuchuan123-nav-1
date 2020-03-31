@@ -10,3 +10,6 @@ parcel src/index.html
 ~~~
 yarn build
 ~~~
+
+# 预览地址
+http://wuchuan123.gitee.io/nav-demo/dist/index.html
