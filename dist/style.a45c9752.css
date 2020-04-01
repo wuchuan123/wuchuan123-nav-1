@@ -23,7 +23,6 @@ img{max-width: 100px;max-height: 100%;}
   fill: currentColor;
   overflow: hidden;
 }
-
 /* style */
 body {
   background: #eee;
@@ -133,12 +132,20 @@ body {
     position: absolute;
     right: 10px;
     top: 5px;
-    display: none;
-    cursor: default;
+}
+
+@media(min-width:500px){
+  .close{
+      display: none;
+  }
+  .site:hover>.close{
+      display: block;
+  }
 }
 .siteList .site:hover > .close{
-    display: block;
+  display: block;
 }
+
 .siteList .addButton {
   border: 1px solid #ddd;
   background: white;
@@ -168,4 +175,4 @@ body {
 }
 
 
-/*# sourceMappingURL=style.955a8125.css.map */
+/*# sourceMappingURL=style.a45c9752.css.map */
