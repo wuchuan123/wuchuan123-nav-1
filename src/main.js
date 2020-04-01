@@ -24,7 +24,7 @@ const render = () => {
     console.log(index);
     const $li = $(`<li>
             <div class="site">
-              <div class="logo">${node.logo}</div>
+              <div class="logo"><img width='40px' src='https://${simplifyUrl(node.url)}/favicon.ico' alt="${node.logo}"></div>
               <div class="link">${simplifyUrl(node.url)}</div>
               <div class='close'>
                 <svg class="icon"">
@@ -33,9 +33,14 @@ const render = () => {
               </div>
             </div> 
         </li>`).insertBefore($lastLi);
+        console.log(node.logo)
     $li.on("click", () => {
       window.open(node.url);
     });
+    $li.find('img').on('error',()=>{
+      $li.find('img').css({display:'none'})
+      $li.find('.logo').html(`${node.logo}`)
+    })
     $li.on("click", ".close", e => {
       console.log("这里");
       e.stopPropagation(); // 阻止冒泡
@@ -48,7 +53,7 @@ const render = () => {
 render();
 
 $(".addButton").on("click", () => {
-  let url = window.prompt("请问你要添加的网址是啥");
+  let url = window.prompt("请输入网址:");
 
   if (url.indexOf("http") !== 0) {
     url = "https://" + url;
