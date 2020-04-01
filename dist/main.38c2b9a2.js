@@ -138,9 +138,16 @@ var render = function render() {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach(function (node, index) {
     console.log(index);
-    var $li = $("<li>\n            <div class=\"site\">\n              <div class=\"logo\">".concat(node.logo, "</div>\n              <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n              <div class='close'>\n                <svg class=\"icon\"\">\n                    <use xlink:href=\"#icon-close\"></use>\n                </svg>\n              </div>\n            </div> \n        </li>")).insertBefore($lastLi);
+    var $li = $("<li>\n            <div class=\"site\">\n              <div class=\"logo\"><img width='40px' src='https://".concat(simplifyUrl(node.url), "/favicon.ico' alt=\"").concat(node.logo, "\"></div>\n              <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n              <div class='close'>\n                <svg class=\"icon\"\">\n                    <use xlink:href=\"#icon-close\"></use>\n                </svg>\n              </div>\n            </div> \n        </li>")).insertBefore($lastLi);
+    console.log(node.logo);
     $li.on("click", function () {
       window.open(node.url);
+    });
+    $li.find('img').on('error', function () {
+      $li.find('img').css({
+        display: 'none'
+      });
+      $li.find('.logo').html("".concat(node.logo));
     });
     $li.on("click", ".close", function (e) {
       console.log("这里");
@@ -155,7 +162,7 @@ var render = function render() {
 
 render();
 $(".addButton").on("click", function () {
-  var url = window.prompt("请问你要添加的网址是啥");
+  var url = window.prompt("请输入网址:");
 
   if (url.indexOf("http") !== 0) {
     url = "https://" + url;
@@ -185,4 +192,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.947446e3.js.map
+//# sourceMappingURL=main.38c2b9a2.js.map
