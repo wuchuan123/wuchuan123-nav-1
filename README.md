@@ -12,4 +12,4 @@ yarn build
 ~~~
 
 # 预览地址
-http://wuchuan123.gitee.io/nav-demo/dist/index.html
+https://wuchuan123.github.io/wuchuan123-nav-1/dist/index.html
